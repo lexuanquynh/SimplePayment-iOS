@@ -90,7 +90,7 @@ macOS 13.0+ (Ventura or later)
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/SimplePayment.git
+   git clone https://github.com/lexuanquynh/SimplePayment.git
    cd SimplePayment
    ```
 
@@ -826,13 +826,13 @@ copies or substantial portions of the Software.
 ### Need Help?
 
 - 📖 Check the [documentation](#-documentation)
-- 🐛 [Report bugs](https://github.com/yourusername/SimplePayment/issues)
-- 💡 [Request features](https://github.com/yourusername/SimplePayment/issues)
+- 🐛 [Report bugs](https://github.com/lexuanquynh/SimplePayment/issues)
+- 💡 [Request features](https://github.com/lexuanquynh/SimplePayment/issues)
 - 📧 Email: support@simplepayment.com
 
 ### Community
 
-- 💬 [Discussions](https://github.com/yourusername/SimplePayment/discussions)
+- 💬 [Discussions](https://github.com/lexuanquynh/SimplePayment/discussions)
 - 🐦 Twitter: [@simplepayment](https://twitter.com/simplepayment)
 - 📱 Join our Discord server
 
@@ -852,6 +852,6 @@ copies or substantial portions of the Software.
 
 ⭐ Star this repo if you find it helpful!
 
-[Report Bug](https://github.com/yourusername/SimplePayment/issues) · [Request Feature](https://github.com/yourusername/SimplePayment/issues)
+[Report Bug](https://github.com/lexuanquynh/SimplePayment/issues) · [Request Feature](https://github.com/lexuanquynh/SimplePayment/issues)
 
 </div>
