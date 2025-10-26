@@ -828,7 +828,7 @@ copies or substantial portions of the Software.
 - 📖 Check the [documentation](#-documentation)
 - 🐛 [Report bugs](https://github.com/lexuanquynh/SimplePayment-iOS/issues)
 - 💡 [Request features](https://github.com/lexuanquynh/SimplePayment-iOS/issues)
-- 📧 Email: support@simplepayment.com
+- 📧 Email: codetoanbug@gmail.com
 
 ### Community
 
