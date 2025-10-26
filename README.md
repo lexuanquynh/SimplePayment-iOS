@@ -137,11 +137,11 @@ Password: 123
 
 ### What Works in Demo Mode
 
-✅ User authentication (login/register)
-✅ Profile viewing and navigation
-✅ All UI screens and flows
-⚠️ Wallet balance shows $0.00 (mock data can be added)
-⚠️ Transactions require backend API
+- ✅ User authentication (login/register)
+- ✅ Profile viewing and navigation
+- ✅ All UI screens and flows
+- ⚠️ Wallet balance shows $0.00 (mock data can be added)
+- ⚠️ Transactions require backend API
 
 ### Switching to Production Mode
 
