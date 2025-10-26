@@ -20,6 +20,20 @@ SimplePayment is a production-ready iOS payment application that enables instant
 
 ---
 
+## 📸 Screenshots
+
+<p align="center">
+  <img src="images/login.png" width="250" alt="Login Screen" />
+  <img src="images/home.png" width="250" alt="Home Screen" />
+  <img src="images/history.png" width="250" alt="Transaction History" />
+</p>
+
+<p align="center">
+  <em>Login Screen • Home Dashboard • Transaction History</em>
+</p>
+
+---
+
 ## ✨ Key Features
 
 ### Security Features
