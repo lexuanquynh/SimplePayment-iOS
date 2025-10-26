@@ -236,7 +236,7 @@ class JailbreakDetector {
         for path in paths {
             if FileManager.default.fileExists(atPath: path) {
                 // Additional check: try to read
-                if let _ = try? String(contentsOfFile: path) {
+                if let _ = try? String(contentsOfFile: path, encoding: .utf8) {
                     print("🚨 Jailbreak detected: Can read system file at \(path)")
                     return true
                 }

@@ -15,7 +15,7 @@ struct AuthenticationView: View {
         VStack(spacing: 0) {
             // Logo and title
             VStack(spacing: 16) {
-                Image(systemName: "dollarsign.circle.fill")
+                Image("logo")
                     .resizable()
                     .frame(width: 80, height: 80)
                     .foregroundStyle(.blue)
