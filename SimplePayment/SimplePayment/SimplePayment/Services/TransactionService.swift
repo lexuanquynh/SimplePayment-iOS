@@ -2,6 +2,7 @@
 //  TransactionService.swift
 //  SimplePayment
 //
+//  Created by Prank on 26/10/25.
 //  Handles transaction operations with offline support
 //
 
@@ -40,6 +41,13 @@ class TransactionService: ObservableObject {
         senderName: String,
         note: String? = nil
     ) async throws -> Transaction {
+        // Check security restrictions
+        guard SecurityManager.shared.isFeatureAllowed(.sendMoney) else {
+            throw TransactionError.featureRestricted(
+                reason: "Sending money is restricted on jailbroken devices for security reasons."
+            )
+        }
+
         // Create transaction locally first
         let transaction = Transaction(
             amount: amount,

@@ -2,6 +2,7 @@
 //  NetworkStatusBanner.swift
 //  SimplePayment
 //
+//  Created by Prank on 26/10/25.
 //  Network status indicator banner
 //
 

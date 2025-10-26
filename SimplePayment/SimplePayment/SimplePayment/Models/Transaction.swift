@@ -2,6 +2,7 @@
 //  Transaction.swift
 //  SimplePayment
 //
+//  Created by Prank on 26/10/25.
 //  Transaction model with offline support
 //
 

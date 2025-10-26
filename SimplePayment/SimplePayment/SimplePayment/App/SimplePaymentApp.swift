@@ -2,6 +2,7 @@
 //  SimplePaymentApp.swift
 //  SimplePayment
 //
+//  Created by Prank on 26/10/25.
 //  Main app entry point
 //
 
@@ -12,15 +13,14 @@ struct SimplePaymentApp: App {
 
     @StateObject private var authViewModel = AuthViewModel()
     @StateObject private var networkMonitor = NetworkMonitor.shared
+    @StateObject private var securityManager = SecurityManager.shared
 
     init() {
         // Start network monitoring
         NetworkMonitor.shared.startMonitoring()
 
-        // Setup security checks (disabled in DEBUG)
-        #if !DEBUG
-        performSecurityChecks()
-        #endif
+        // Perform security checks (jailbreak detection)
+        SecurityManager.shared.performSecurityChecks()
     }
 
     var body: some Scene {
@@ -28,16 +28,11 @@ struct SimplePaymentApp: App {
             ContentView()
                 .environmentObject(authViewModel)
                 .environmentObject(networkMonitor)
+                .environmentObject(securityManager)
                 .onAppear {
                     // Check if user is already logged in
                     authViewModel.checkAuthStatus()
                 }
         }
-    }
-
-    private func performSecurityChecks() {
-        // Add security checks for production
-        // For now, just log
-        print("🔒 Security checks passed")
     }
 }
