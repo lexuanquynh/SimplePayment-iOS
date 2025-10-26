@@ -56,13 +56,13 @@ struct BalanceCard: View {
         .padding(24)
         .background(
             LinearGradient(
-                colors: [.blue, .purple],
+                colors: [.green, .teal],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
         )
         .cornerRadius(20)
-        .shadow(color: .blue.opacity(0.3), radius: 10, y: 5)
+        .shadow(color: .green.opacity(0.3), radius: 10, y: 5)
     }
 
     private func formatAmount(_ amount: Decimal) -> String {

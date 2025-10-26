@@ -20,7 +20,7 @@ struct ProfileView: View {
                     HStack(spacing: 16) {
                         Circle()
                             .fill(LinearGradient(
-                                colors: [.blue, .purple],
+                                colors: [.green, .teal],
                                 startPoint: .topLeading,
                                 endPoint: .bottomTrailing
                             ))
