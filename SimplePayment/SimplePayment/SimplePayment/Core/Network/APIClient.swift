@@ -135,6 +135,7 @@ enum HTTPMethod: String {
 enum Endpoint {
     case login
     case register
+    case refreshToken
     case profile
     case balance
     case transactions
@@ -145,6 +146,7 @@ enum Endpoint {
         switch self {
         case .login: return "/auth/login"
         case .register: return "/auth/register"
+        case .refreshToken: return "/auth/refresh"
         case .profile: return "/user/profile"
         case .balance: return "/wallet/balance"
         case .transactions: return "/transactions"

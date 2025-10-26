@@ -95,7 +95,7 @@ struct PendingTransactionRow: View {
             Transaction(
                 amount: 50.00,
                 recipientId: "1",
-                recipientName: "John Doe",
+                recipientName: "Code toan bug",
                 senderId: "2",
                 senderName: "Me",
                 type: .sent,

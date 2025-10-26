@@ -299,7 +299,7 @@ The app uses a queue system for transactions:
 await TransactionService.shared.sendMoney(
     amount: 100,
     to: recipientId,
-    recipientName: "John Doe",
+    recipientName: "Code toan bug",
     from: currentUserId,
     senderName: "Me"
 )
@@ -410,9 +410,9 @@ Content-Type: application/json
       "amount": 100.00,
       "currency": "USD",
       "recipient_id": "user-123",
-      "recipient_name": "John Doe",
+      "recipient_name": "Code toan bug",
       "sender_id": "user-456",
-      "sender_name": "Jane Smith",
+      "sender_name": "Codetoanbug",
       "type": "sent",
       "status": "completed",
       "created_at": "2025-01-26T10:30:00Z"

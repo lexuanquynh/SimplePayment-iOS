@@ -116,6 +116,30 @@ class AuthViewModel: ObservableObject {
     }
 
     @MainActor
+    func refreshToken() async throws {
+        if useMockMode {
+            // Mock token refresh
+            try await mockRefreshToken()
+        } else {
+            // Real API call
+            guard let refreshToken = try? SecureStorage.shared.getString("refresh_token") else {
+                throw AuthError.noRefreshToken
+            }
+
+            let request = RefreshTokenRequest(refreshToken: refreshToken)
+            let response: AuthResponse = try await apiClient.request(
+                .refreshToken,
+                method: .post,
+                body: request
+            )
+
+            // Save new tokens
+            try SecureStorage.shared.saveString(response.token, for: "auth_token")
+            try SecureStorage.shared.saveString(response.refreshToken, for: "refresh_token")
+        }
+    }
+
+    @MainActor
     func logout() {
         // Clear all secure data
         SecureStorage.shared.clearAll()
@@ -179,6 +203,38 @@ class AuthViewModel: ObservableObject {
             self.isAuthenticated = true
         } catch {
             self.errorMessage = "Failed to save credentials"
+        }
+    }
+
+    private func mockRefreshToken() async throws {
+        // Simulate network delay
+        try? await Task.sleep(nanoseconds: 500_000_000) // 0.5 seconds
+
+        // Generate new mock tokens with timestamp
+        let timestamp = Date().timeIntervalSince1970
+        let newToken = "mock-token-\(Int(timestamp))"
+        let newRefreshToken = "mock-refresh-token-\(Int(timestamp))"
+
+        // Save new mock tokens
+        try SecureStorage.shared.saveString(newToken, for: "auth_token")
+        try SecureStorage.shared.saveString(newRefreshToken, for: "refresh_token")
+
+        print("✅ Mock token refreshed: \(newToken)")
+    }
+}
+
+// MARK: - Auth Errors
+
+enum AuthError: LocalizedError {
+    case noRefreshToken
+    case refreshFailed
+
+    var errorDescription: String? {
+        switch self {
+        case .noRefreshToken:
+            return "No refresh token found. Please login again."
+        case .refreshFailed:
+            return "Failed to refresh authentication token."
         }
     }
 }

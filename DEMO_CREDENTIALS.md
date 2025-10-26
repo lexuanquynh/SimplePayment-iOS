@@ -23,7 +23,7 @@ OR any email/password combination!
 ### Register
 Just fill in the form with any values:
 ```
-Name: John Doe
+Name: Code toan bug
 Email: john@example.com
 Phone: +1234567890
 Password: password123
@@ -61,6 +61,7 @@ private let baseURL = "https://your-api-url.com/v1"  // Your real API
 ### ✅ Working Features:
 - Login with any credentials
 - Register new users
+- Token refresh (automatic session renewal)
 - View profile
 - Navigate through app
 - Logout
@@ -128,6 +129,51 @@ current_user: { User object }
 
 ---
 
+## 🔄 Token Refresh (Demo Mode)
+
+The app now supports **automatic token refresh** in demo mode!
+
+### How It Works
+
+When your authentication token expires, the app can automatically refresh it:
+
+```swift
+// AuthViewModel has a new method
+try await authViewModel.refreshToken()
+```
+
+### In Demo Mode:
+
+- **Simulates network delay**: 0.5 seconds
+- **Generates new tokens**: With timestamp for uniqueness
+  ```
+  auth_token: "mock-token-1738000000"
+  refresh_token: "mock-refresh-token-1738000000"
+  ```
+- **Prints confirmation**: Check console for "✅ Mock token refreshed"
+
+### In Production Mode:
+
+- **Calls `/auth/refresh` endpoint**
+- **Sends refresh token** from Keychain
+- **Receives new tokens** from server
+- **Updates Keychain** automatically
+
+### Testing Token Refresh
+
+You can manually test token refresh:
+
+1. Login to the app
+2. In your code, call:
+   ```swift
+   Task {
+       try await authViewModel.refreshToken()
+   }
+   ```
+3. Check console for: `✅ Mock token refreshed: mock-token-...`
+
+---
+
 ## 🛠️ Adding Mock Data for Testing
 
 Want to test with wallet balance and transactions? You can extend the mock mode:
@@ -169,7 +215,7 @@ func fetchTransactions() async throws -> [Transaction] {
             Transaction(
                 amount: 100.00,
                 recipientId: "user-2",
-                recipientName: "John Doe",
+                recipientName: "Code toan bug",
                 senderId: "demo-user-123",
                 senderName: "Demo User",
                 type: .sent,
@@ -181,7 +227,7 @@ func fetchTransactions() async throws -> [Transaction] {
                 recipientId: "demo-user-123",
                 recipientName: "Demo User",
                 senderId: "user-3",
-                senderName: "Jane Smith",
+                senderName: "Codetoanbug",
                 type: .received,
                 status: .completed,
                 createdAt: Date().addingTimeInterval(-172800) // 2 days ago

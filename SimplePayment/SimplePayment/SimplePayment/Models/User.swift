@@ -40,6 +40,14 @@ struct RegisterRequest: Codable, Sendable {
     let password: String
 }
 
+struct RefreshTokenRequest: Codable, Sendable {
+    let refreshToken: String
+
+    enum CodingKeys: String, CodingKey {
+        case refreshToken = "refresh_token"
+    }
+}
+
 struct AuthResponse: Codable, Sendable {
     let token: String
     let refreshToken: String

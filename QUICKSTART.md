@@ -119,7 +119,7 @@ let transactions = [
     Transaction(
         amount: 100.00,
         recipientId: "test1",
-        recipientName: "John Doe",
+        recipientName: "Code toan bug",
         senderId: "me",
         senderName: "Me",
         type: .sent,
